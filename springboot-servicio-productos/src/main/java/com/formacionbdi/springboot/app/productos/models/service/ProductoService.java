@@ -26,5 +26,17 @@ public class ProductoService {
 	{
 		return productoDao.findById(id).orElse(null);
 	}
+	
+	@Transactional
+	public Producto save(Producto producto)
+	{
+		return productoDao.save(producto);
+	}
+	
+	@Transactional
+	public void deleteById(Long id)
+	{
+		productoDao.deleteById(id);
+	}
 
 }
