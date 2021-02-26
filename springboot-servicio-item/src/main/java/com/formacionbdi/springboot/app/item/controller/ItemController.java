@@ -38,7 +38,7 @@ public class ItemController {
 	private Environment env;
 	
 	@Autowired
-	@Qualifier("serviceRestTemplate") //otra forma de indicar que service se quiere utiliza para inyectar
+	@Qualifier("serviceFeign") //otra forma de indicar que service se quiere utiliza para inyectar
 	private ItemService itemService;
 	
 	@Value("${configuracion.texto}")
