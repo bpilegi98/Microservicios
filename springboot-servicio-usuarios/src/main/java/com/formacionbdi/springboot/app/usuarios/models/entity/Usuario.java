@@ -37,9 +37,8 @@ public class Usuario implements Serializable {
 	private String email;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	//@JoinTable(name = "usuarios_to_roles", joinColumns = @JoinColumn(name="user_id"), 
-	//inverseJoinColumns = @JoinColumn(name="rol_id"), 
-	//uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "rol_id"})})
+	//Anotacion para cambiar el nombre de la tabla intermedia y los constraint
+	//@JoinTable(name = "usuarios_to_roles", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="rol_id"), uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "rol_id"})})
 	private List<Rol> roles;
 
 	public Long getId() {
