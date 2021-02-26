@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.formacionbdi.springboot.app.item.clientes.ProductoClienteRest;
 import com.formacionbdi.springboot.app.item.models.Item;
-import com.formacionbdi.springboot.app.item.models.Producto;
+import com.commons.models.entity.Producto;
 
 @Service("serviceFeign")
 //@Primary  para indicar que este es el service que se quiere utilizar para inyectar en el controller
