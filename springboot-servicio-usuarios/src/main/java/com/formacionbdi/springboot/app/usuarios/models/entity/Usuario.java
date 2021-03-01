@@ -11,9 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "usuarios")
@@ -36,9 +36,12 @@ public class Usuario implements Serializable {
 	@Column(unique = true, length = 100)
 	private String email;
 
-	@ManyToMany(fetch = FetchType.LAZY)
+	
 	//Anotacion para cambiar el nombre de la tabla intermedia y los constraint
-	//@JoinTable(name = "usuarios_to_roles", joinColumns = @JoinColumn(name="user_id"), inverseJoinColumns = @JoinColumn(name="rol_id"), uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "rol_id"})})
+	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name="usuario_id"), 
+			inverseJoinColumns = @JoinColumn(name="rol_id"), 
+			uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "rol_id"})})
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Rol> roles;
 
 	public Long getId() {
